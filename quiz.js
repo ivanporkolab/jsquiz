@@ -1,77 +1,38 @@
 console.log('Program begins');
 alert('Welcome to my first JavaScript quiz. Find out how smart are you.'); 
-var firstQuestion = prompt('What is the capital of Australia?');
+
+
 var score = 0;
-/*
-Begin the quiz with first question
-Score is set to 0
-*/
-    firstQuestion === false; 
-      if (firstQuestion === 'canberra'.toLowerCase()) {
-        firstQuestion === true;
-        var scoreOne = 1;
-        document.write('<p>You have answered correctly. Your score is ' + scoreOne + '.</p>');
-        
-}  else {
-  var scoreOne = 0;
-  document.write ('<p>Your answer is wrong, move on to the next question. Your score is ' + scoreOne + '. </p>');
+
+//Model:
+function Question(question, answer) {
+  this.question = question;
+  this.answer = answer;
 }
 
-//Second question
-var secondQuestion = prompt('What is the chemical formula for water')
-      secondQuestion === false; 
-      if (secondQuestion === 'h2o' || secondQuestion === 'h^2o'.toLowerCase()) {
-        secondQuestion === true;
-        var scoreTwo = parseInt(scoreOne) + 1;
-        document.write('<p>You have answered correctly. Your score is ' + scoreTwo + '.</p>')
+var questions = [new Question("What is the capital of Australia?", "canberra"),
+                 new Question("What is the chemical formula for water?", "h2o"),
+                 new Question("What is the biggest island on the Earth?", "greenland"),
+                 new Question("What is the name of nuclear plant that exploded in Ukraine?", "chernobyl"),
+                 new Question("In the production of coconuts in world, which country ranks top?", "philippines")];
+//End of Model
 
-}  else {
-  var scoreTwo = parseInt(scoreOne) + 0;
-  document.write ('<p>Your answer is wrong, move on to the next question. Your score is ' + scoreTwo + '.</p>');
-}
 
-//Third question
-var thirdQuestion = prompt('What is the biggest island on the Earth')
-      thirdQuestion === false; 
-      if (thirdQuestion === 'greenland'.toLowerCase() || thirdQuestion === 'green land'.toLowerCase()) {
-        thirdQuestion === true;
-        var scoreThree = parseInt(scoreTwo) + 1;
-        document.write('<p>You have answered correctly. Your score is ' + scoreThree + '.</p>')
-}  else {
-  var scoreThree = parseInt(scoreTwo) + 0;
-  document.write ('<p>Your answer is wrong, move on to the next question. Your score is ' + scoreThree + '.</p>');
+//ask all the questions
+for (var i = 0; i < questions.length; i++) {
+  var getAnswer = prompt(questions[i].question);
+  number = i + 1;
+  if (getAnswer.toLowerCase() === questions[i].answer) {
+    score++;
+    document.write('<p>You have answered correctly on question '+ number +'. Your score is ' + score + '.</p>');
+  } else {
+     document.write ('<p>Your answer on '+ number +' question is wrong, move on to the next question. Your score is ' + score + '.</p>');
+  }
 }
-
-//Fourth question
-var fourthQuestion = prompt('What is the nuclear plant that exploded in Ukraine?');
-      fourthQuestion === false; 
-      if (fourthQuestion === 'chernobyl'.toLowerCase()) {
-      fourthQuestion === true; 
-      var scoreFour = parseInt(scoreThree) + 1; 
-      document.write('<p>You have answered correctly. Your score is ' + scoreFour + '.</p>');
-} else {
-  var scoreFour = parseInt(scoreThree) + 0;
-  document.write ('<p>Your answer is wrong, move on to the next question. Your score is ' + scoreFour + '.</p>');
-}
-
-//Fifth question
-var fifthQuestion = prompt('In the production of coconuts in world, which country ranks top?');
-      fifthQuestion === false; 
-      if (fifthQuestion === 'philippines'.toLowerCase()) {
-      fifthQuestion === true; 
-      var scoreFive = parseInt(scoreFour) + 1; 
-      document.write('<p>You have answered correctly. Your score is ' + scoreFive + '.</p>');
-} else {
-  var scoreFive = parseInt(scoreFour) + 0;
-  document.write ('<p>Your answer is wrong. Your score is ' + scoreFive + '.</p>');
-}
-//End of the quiz
 
 alert('You have reached the end of the test. Check your results!');
 
 //Results
-
-var score = scoreFive; 
 if (score === 5) {
 document.write('<h2>Awesome, You got the GOLD CROWN. Congratulations, you are really smart</h2>'); // gold medalist IF statement
 } else if (score === 4 || score === 3) {
